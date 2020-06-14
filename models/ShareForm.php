@@ -24,11 +24,11 @@ class ShareForm extends Model
     public function rules()
     {
        
-        return array(
-            array(['users'], 'safe'),
-            array(['spaces'], 'required'),
-                //array('inviteExternal', 'checkInviteExternal'),
-        );
+        return [
+            [['users'], 'safe'],
+            [['spaces'], 'required'],
+            //['inviteExternal', 'checkInviteExternal'],
+        ];
     }
 
 }
