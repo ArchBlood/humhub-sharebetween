@@ -7,11 +7,11 @@
             </h4>
         </div>
         <div class="modal-body text-center">
-            <?php echo Yii::t('SharebetweenModule.base', 'Post has been shared successfully'); ?>
+            <?= Yii::t('SharebetweenModule.base', 'Post has been shared successfully'); ?>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-primary"
-                    data-dismiss="modal"><?php echo Yii::t('SharebetweenModule.base', 'Ok'); ?></button>
+                    data-dismiss="modal"><?= Yii::t('SharebetweenModule.base', 'Ok'); ?></button>
         </div>
     </div>
 </div>
