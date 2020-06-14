@@ -12,7 +12,7 @@
         <div class="modal-footer">
 
             <button type="button" class="btn btn-primary"
-                    data-dismiss="modal"><?php echo Yii::t('SharebetweenModule.base', 'OK'); ?></button>
+                    data-dismiss="modal"><?= Yii::t('SharebetweenModule.base', 'OK'); ?></button>
 
         </div>
     </div>
