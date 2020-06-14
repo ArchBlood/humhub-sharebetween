@@ -12,6 +12,8 @@ use yii\bootstrap\ActiveForm;
 use yii\web\JsExpression;
 use \humhub\modules\sharebetween\assets\Assets;
 use humhub\modules\space\models\Space;
+use humhub\widgets\LoaderWidget;
+use humhub\widgets\AjaxButton;
 use yii\helpers\Url;
 
 Assets::register($this);
@@ -19,9 +21,9 @@ Assets::register($this);
 
 $this->registerJsConfig('sharebetween', [
     "groups" => [
-        'searchGroupsUrl' =>  yii\helpers\Url::to(['/sharebetween/share/get-groups']),
-        'searchUsersUrl' =>  yii\helpers\Url::to(['/sharebetween/share/get-users']),
-        'retriveUserObjects' =>  yii\helpers\Url::to(['/sharebetween/share/get-message-objects']),
+        'searchGroupsUrl' =>  Url::to(['/sharebetween/share/get-groups']),
+        'searchUsersUrl' =>  Url::to(['/sharebetween/share/get-users']),
+        'retriveUserObjects' =>  Url::to(['/sharebetween/share/get-message-objects']),
         'user_id' =>  Yii::$app->user->id
     ]
 ]);
@@ -56,13 +58,13 @@ $this->registerJsConfig('sharebetween', [
 
                     <div class="modal-footer">
 
-                        <?= \humhub\widgets\AjaxButton::widget([
+                        <?= AjaxButton::widget([
                             'label' => Yii::t('SharebetweenModule.base', 'Share'),
                             'ajaxOptions' => [
                                 'type' => 'POST',
                                 'beforeSend' => new JsExpression('function(){ setModalLoader(); }'),
                                 'success' => new JsExpression('function(html){ $("#globalModal").html(html); humhub.modules.sharebetween.checkResponse();}'),
-                                'url' => yii\helpers\Url::to(['/sharebetween/share/index', 'id' => $content->id, 'type' => 'self']),
+                                'url' => Url::to(['/sharebetween/share/index', 'id' => $content->id, 'type' => 'self']),
                             ],
                             'htmlOptions' => [
                                 'class' => 'btn btn-primary'
@@ -82,13 +84,13 @@ $this->registerJsConfig('sharebetween', [
 
                     <?= $form->field($model, 'spaces')->dropDownList([], ['id' => 'spaces_select2', 'multiple' => 'multiple'])->label(false); ?>
                     <div class="modal-footer">
-                        <?= \humhub\widgets\AjaxButton::widget([
+                        <?= AjaxButton::widget([
                             'label' => Yii::t('SharebetweenModule.base', 'Share'),
                             'ajaxOptions' => [
                                 'type' => 'POST',
                                 'beforeSend' => new JsExpression('function(){ setModalLoader(); }'),
                                 'success' => new JsExpression('function(html){ $("#globalModal").html(html); humhub.modules.sharebetween.checkResponse();}'),
-                                'url' => yii\helpers\Url::to(['/sharebetween/share/index', 'id' => $content->id, 'type' => 'group']),
+                                'url' => Url::to(['/sharebetween/share/index', 'id' => $content->id, 'type' => 'group']),
                             ],
                             'htmlOptions' => [
                                 'class' => 'btn btn-primary'
@@ -101,7 +103,7 @@ $this->registerJsConfig('sharebetween', [
                     </div>
                     <?php ActiveForm::end(); ?>
                 </div>
-                <?= \humhub\widgets\LoaderWidget::widget(['id' => 'invite-loader', 'cssClass' => 'loader-modal hidden']); ?>
+                <?= LoaderWidget::widget(['id' => 'invite-loader', 'cssClass' => 'loader-modal hidden']); ?>
 
             </div>
 
