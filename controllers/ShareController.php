@@ -69,7 +69,6 @@ class ShareController extends \humhub\components\Controller
         return $this->renderAjax('index', ['content' => $content, 'model' => $model]);
     }
 
-
     //Get followed
     public function actionFollowerList()
     {
@@ -94,7 +93,6 @@ class ShareController extends \humhub\components\Controller
 
         return $query;
     }
-
 
     //Get Users by query name
     public function actionGetUsers()
@@ -175,8 +173,8 @@ class ShareController extends \humhub\components\Controller
         if (strlen(Yii::$app->request->get('query')) >= 1) {
             if (Yii::$app->request->isAjax) {
                 //Find User Spaces
-                $spaces = array();
-                $results = array();
+                $spaces = [];
+                $results = [];
                 foreach ($this->getUserSpacesByQueryName(Yii::$app->user->id, Yii::$app->request->get('query')) as $space) {
                     $spaces[] = ArrayHelper::toArray($space);
                     $results[] = [
