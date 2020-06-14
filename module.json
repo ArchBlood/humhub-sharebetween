@@ -2,9 +2,9 @@
   "id": "sharebetween",
   "name": "Share Between",
   "description": "Share content with spaces and users",
-  "keywords": [],
-  "version": "1.0.1",
+  "keywords": ["share", "posts"],
+  "version": "1.0.2",
   "humhub": {
-    "minVersion": "1.1"
+    "minVersion": "1.4"
   }
 }
