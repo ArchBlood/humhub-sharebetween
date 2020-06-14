@@ -9,9 +9,10 @@
 namespace humhub\modules\sharebetween\widgets;
 
 use Yii;
+use humhub\components\Widget;
 use humhub\modules\content\components\ContentContainerController;
 
-class ShareLink extends \yii\base\Widget
+class ShareLink extends Widget
 {
 
     /**
@@ -28,10 +29,10 @@ class ShareLink extends \yii\base\Widget
             return;
         }
         
-        return $this->render('shareLink', array(
+        return $this->render('shareLink', [
                     'object' => $this->content,
                     'id' => $this->content->content->id,
-        ));
+        ]);
     }
 
 }
