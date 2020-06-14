@@ -19,7 +19,7 @@ class Events extends BaseObject
     //        $stackWidget = $event->sender;
     //        $content = $event->sender->object;
 
-    //        $stackWidget->addWidget(widgets\ShareLink::className(), ['content' => $content]);
+    //        $stackWidget->addWidget(widgets\ShareLink::class, ['content' => $content]);
     //    }
 
     public static function onContentDelete($event)
@@ -35,6 +35,6 @@ class Events extends BaseObject
         $stackWidget = $event->sender;
         $content = $event->sender->object;
 
-        $stackWidget->addWidget(widgets\ShareLink::className(), ['content' => $content], ['sortOrder' => 11]);
+        $stackWidget->addWidget(widgets\ShareLink::class, ['content' => $content], ['sortOrder' => 11]);
     }
 }
