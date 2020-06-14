@@ -27,7 +27,7 @@ class Share extends ContentActiveRecord
 
     public function getSharedContent()
     {
-        return $this->hasOne(Content::className(), ['id' => 'content_id']);
+        return $this->hasOne(Content::class, ['id' => 'content_id']);
     }
 
     public static function create(Content $content, ContentContainerActiveRecord $container)
